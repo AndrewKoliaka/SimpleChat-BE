@@ -13,5 +13,5 @@ npm i
 To run the development server execute next commands:
 ```sh
 mongod
-nodemon server.js
+npm run start
 ```

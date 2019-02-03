@@ -1,0 +1,9 @@
+{
+    "port": 8080,
+    "db": {
+        "name": "chat",
+        "host": "localhost",
+        "port": 27017
+    },
+    "jwtKey": "jwtKey"
+}
