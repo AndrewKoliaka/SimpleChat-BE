@@ -1,5 +1,5 @@
-import mongooseService from './mongooseService';
-import socketService from './socketService';
+import mongooseService from './mongoose.service';
+import socketService from './socket.service';
 
 export default {
     mongooseService,

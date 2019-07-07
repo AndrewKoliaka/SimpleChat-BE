@@ -1,5 +1,5 @@
 {
-  "extends": "standard",
+  "extends": "eslint:recommended",
   "rules": {
       "indent": ["error", 4],
       "semi": ["error", "always"],
@@ -10,5 +10,13 @@
           { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
           { "blankLine": "any",    "prev": ["const", "let", "var"], "next": ["const", "let", "var"]}
       ]
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2018
   }
 }

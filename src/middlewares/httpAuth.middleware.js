@@ -9,4 +9,4 @@ export default async function (req, res, next) {
     } catch (error) {
         res.status(401).json({ info: 'Unauthorized' });
     }
-};
+}

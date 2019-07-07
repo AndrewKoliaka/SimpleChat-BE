@@ -1,5 +1,5 @@
 import { Types } from 'mongoose';
-import Room from '../models/roomModel';
+import Room from '../models/room.model';
 
 const ObjectId = Types.ObjectId;
 
@@ -18,4 +18,4 @@ export default async function (req, res, next) {
     } catch (error) {
         res.status(500).json(error);
     }
-};
+}

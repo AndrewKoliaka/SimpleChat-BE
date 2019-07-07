@@ -1,6 +1,6 @@
-import messageRouter from './messageRouter';
-import roomRouter from './roomRouter';
-import userRouter from './userRouter';
+import messageRouter from './message.router';
+import roomRouter from './room.router';
+import userRouter from './user.router';
 
 export default {
     messageRouter,

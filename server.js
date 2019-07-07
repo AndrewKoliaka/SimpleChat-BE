@@ -8,7 +8,7 @@ import socketIoCookie from 'socket.io-cookie';
 import { port, apiPrefix } from './src/config/config.json';
 import routes from './src/routes';
 import services from './src/services';
-import socketAuthMiddleware from './src/middlewares/socketAuthMiddleware';
+import socketAuthMiddleware from './src/middlewares/socketAuth.middleware';
 
 const app = express();
 const server = http.createServer(app);

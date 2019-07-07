@@ -9,4 +9,4 @@ export default async function (socket, next) {
     } catch (error) {
         socket.emit('error', { info: 'Unauthorized' });
     }
-};
+}

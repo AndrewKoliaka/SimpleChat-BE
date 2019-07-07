@@ -1,4 +1,4 @@
-import User from '../models/userModel';
+import User from '../models/user.model';
 import { sign } from '../utils/jwt';
 import { Types } from 'mongoose';
 
@@ -22,7 +22,7 @@ export async function loginUser (req, res) {
     } catch (error) {
         res.status(500).json(error);
     }
-};
+}
 
 export async function registerUser (req, res) {
     const { name, email, password } = req.body;
@@ -40,7 +40,7 @@ export async function registerUser (req, res) {
     } catch (error) {
         res.status(500).json(error);
     }
-};
+}
 
 export async function getUserList (req, res) {
     const { id } = req.tokenData;
@@ -61,7 +61,7 @@ export async function getUserList (req, res) {
     } catch (error) {
         res.status(500).json(error);
     }
-};
+}
 
 export async function updateUser (req, res) {
     const { name } = req.body;
@@ -77,7 +77,7 @@ export async function updateUser (req, res) {
     } catch (error) {
         res.status(500).json(error);
     }
-};
+}
 
 export async function deleteUser (req, res) {
     const { id } = req.params;
@@ -89,7 +89,7 @@ export async function deleteUser (req, res) {
     } catch (error) {
         res.status(500).json(error);
     }
-};
+}
 
 export async function blockUser (req, res) {
     const blockUserId = req.params.id;
@@ -101,7 +101,7 @@ export async function blockUser (req, res) {
     } catch (error) {
         res.status(500).json(error);
     }
-};
+}
 
 export async function unBlockUser (req, res) {
     const unBlockUserId = req.params.id;
@@ -113,4 +113,4 @@ export async function unBlockUser (req, res) {
     } catch (error) {
         res.status(500).json(error);
     }
-};
+}

@@ -1,6 +1,6 @@
-import adminMiddleware from './adminMiddleware';
-import httpAuthMiddleware from './httpAuthMiddleware';
-import socketAuthMiddleware from './socketAuthMiddleware';
+import adminMiddleware from './admin.middleware';
+import httpAuthMiddleware from './httpAuth.middleware';
+import socketAuthMiddleware from './socketAuth.middleware';
 
 export default {
     adminMiddleware,

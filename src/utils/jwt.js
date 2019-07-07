@@ -7,7 +7,7 @@ export async function sign (data, expiration = '1d') {
     } catch (error) {
         throw new Error(error);
     }
-};
+}
 
 export async function verify (token) {
     try {
@@ -15,8 +15,8 @@ export async function verify (token) {
     } catch (error) {
         throw new Error(error);
     }
-};
+}
 
 export function decode (token) {
     return jwt.decode(token, { complete: true });
-};
+}

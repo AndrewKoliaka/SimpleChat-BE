@@ -1,6 +1,6 @@
 import { Types } from 'mongoose';
-import Room from '../models/roomModel';
-import Message from '../models/messageModel';
+import Room from '../models/room.model';
+import Message from '../models/message.model';
 
 const ObjectId = Types.ObjectId;
 
@@ -14,7 +14,7 @@ export async function getRoomsList (req, res) {
     } catch (error) {
         res.status(500).send(error);
     }
-};
+}
 
 export async function getRoom (req, res) {
     const { id } = req.params;
@@ -27,7 +27,7 @@ export async function getRoom (req, res) {
     } catch (error) {
         res.status(500).send(error);
     }
-};
+}
 
 export async function createRoom (req, res) {
     const { name, participants } = req.body;
@@ -45,7 +45,7 @@ export async function createRoom (req, res) {
     } catch (error) {
         res.status(500).send(error);
     }
-};
+}
 
 export async function updateRoom (req, res) {
     const { name, participants } = req.body;
@@ -57,7 +57,7 @@ export async function updateRoom (req, res) {
     } catch (error) {
         res.status(500).send(error);
     }
-};
+}
 
 export async function deleteRoom (req, res) {
     const { id } = req.params;
@@ -68,7 +68,7 @@ export async function deleteRoom (req, res) {
     } catch (error) {
         res.status(500).send(error);
     }
-};
+}
 
 export async function getHistory (req, res) {
     const { id } = req.params;
@@ -89,7 +89,7 @@ export async function getHistory (req, res) {
     } catch (error) {
         res.status(500).send(error);
     }
-};
+}
 
 export async function addParticipant (req, res) {
     const roomId = req.params.id;
@@ -101,7 +101,7 @@ export async function addParticipant (req, res) {
     } catch (error) {
         res.status(500).send(error);
     }
-};
+}
 
 export async function leaveRoom (req, res) {
     const roomId = req.params.id;
@@ -113,4 +113,4 @@ export async function leaveRoom (req, res) {
     } catch (error) {
         res.status(500).send(error);
     }
-};
+}

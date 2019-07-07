@@ -1,6 +1,6 @@
-import * as messageController from './messageController';
-import * as roomController from './roomController';
-import * as userController from './userController';
+import * as messageController from './message.controller';
+import * as roomController from './room.controller';
+import * as userController from './user.controller';
 
 export default {
     messageController,

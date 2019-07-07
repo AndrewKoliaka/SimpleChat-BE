@@ -1,4 +1,4 @@
-import Message from '../models/messageModel';
+import Message from '../models/message.model';
 
 export async function updateMessage (req, res) {
     const { roomId, text, timestamp = Date.now() } = req.body;
@@ -11,7 +11,7 @@ export async function updateMessage (req, res) {
     } catch (error) {
         res.status(500).send(error);
     }
-};
+}
 
 export async function deleteMessage (req, res) {
     const { id } = req.params;
@@ -22,4 +22,4 @@ export async function deleteMessage (req, res) {
     } catch (error) {
         res.status(500).send(error);
     }
-};
+}
