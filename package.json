@@ -1,6 +1,6 @@
 {
   "name": "simplechat-be",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Backend part of chat application.",
   "main": "server.js",
   "scripts": {

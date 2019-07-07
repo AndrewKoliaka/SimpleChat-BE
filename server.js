@@ -5,7 +5,7 @@ import http from 'http';
 import io from 'socket.io';
 import socketIoCookie from 'socket.io-cookie';
 
-import { port } from './src/config/config.json';
+import { port, apiPrefix } from './src/config/config.json';
 import routes from './src/routes';
 import services from './src/services';
 import socketAuthMiddleware from './src/middlewares/socketAuthMiddleware';
@@ -16,9 +16,9 @@ const socketServer = io(server);
 
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use('/api/users', routes.userRouter);
-app.use('/api/rooms', routes.roomRouter);
-app.use('/api/messages', routes.messageRouter);
+app.use(`${apiPrefix}/users`, routes.userRouter);
+app.use(`${apiPrefix}/rooms`, routes.roomRouter);
+app.use(`${apiPrefix}/messages`, routes.messageRouter);
 
 socketServer.use(socketIoCookie);
 socketServer.use(socketAuthMiddleware);

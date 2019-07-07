@@ -1,5 +1,5 @@
 import User from '../models/userModel';
-import jwtUtils from '../utils/jwt';
+import { sign } from '../utils/jwt';
 import { Types } from 'mongoose';
 
 const ObjectId = Types.ObjectId;
@@ -12,7 +12,7 @@ export async function loginUser (req, res) {
 
         if (user) {
             const tokenData = { id: user._id, name: user.name, email: user.email };
-            const token = await jwtUtils.sign(tokenData);
+            const token = await sign(tokenData);
 
             res.cookie('token', token);
             res.sendStatus(204);
@@ -33,10 +33,10 @@ export async function registerUser (req, res) {
         if (existingUser) return res.status(409).json({ info: 'User exists' });
         const createdUser = await User.create({ name, email, password });
         const tokenData = { id: createdUser._id, name: createdUser.name, email: createdUser.email };
-        const token = await jwtUtils.sign(tokenData);
+        const token = await sign(tokenData);
 
         res.cookie('token', token);
-        res.sendStatus(204);
+        res.sendStatus(201);
     } catch (error) {
         res.status(500).json(error);
     }
@@ -70,7 +70,7 @@ export async function updateUser (req, res) {
     try {
         await User.updateOne({ _id: id }, { name });
         const newTokenData = { id: req.tokenData.id, email: req.tokenData.email, name };
-        const newToken = await jwtUtils.sign(newTokenData);
+        const newToken = await sign(newTokenData);
 
         res.cookie('token', newToken);
         res.sendStatus(204);

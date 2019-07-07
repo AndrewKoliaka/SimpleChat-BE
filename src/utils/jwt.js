@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken';
 import { jwtKey } from '../config/config.json';
 
-export async function sign (data, expiration) {
+export async function sign (data, expiration = '1d') {
     try {
-        return await jwt.sign(data, jwtKey, { expiresIn: expiration || '1d' });
+        return await jwt.sign(data, jwtKey, { expiresIn: expiration });
     } catch (error) {
         throw new Error(error);
     }

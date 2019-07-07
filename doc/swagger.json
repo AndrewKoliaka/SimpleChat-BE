@@ -1,0 +1,145 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "SimpleChat Backend"
+  },
+  "basePath": "/api",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "name": "Cookie",
+      "in": "header",
+      "description": "token for user authentication"
+    }
+  },
+  "paths": {
+    "/users/register": {
+      "post": {
+        "summary": "Register user",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "user",
+            "description": "User to create",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "required": [
+                "email",
+                "password"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User created response"
+          },
+          "409": {
+            "description": "User with this email already exists response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "info"
+              ],
+              "properties": {
+                "info": {
+                  "type": "string",
+                  "description": "conflict info"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "summary": "Login user",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "user",
+            "description": "User to login",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "required": [
+                "email",
+                "password"
+              ],
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "User logged in"
+          },
+          "404": {
+            "description": "User with this credentials not found",
+            "schema": {
+              "type": "object",
+              "required": [
+                "info"
+              ],
+              "properties": {
+                "info": {
+                  "type": "string",
+                  "description": "error info"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "Returns users list",
+        "tags": [
+          "Users"
+        ],
+        "security": [
+          {
+            "token": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User list which excludes requester user and users were banned requester"
+          }
+        }
+      }
+    }
+  }
+}

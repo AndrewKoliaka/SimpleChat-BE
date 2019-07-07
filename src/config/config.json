@@ -5,5 +5,6 @@
         "host": "localhost",
         "port": 27017
     },
-    "jwtKey": "jwtKey"
+    "jwtKey": "jwtKey",
+    "apiPrefix": "/api"
 }
