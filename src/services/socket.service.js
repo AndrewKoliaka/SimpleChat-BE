@@ -4,7 +4,7 @@ import {
     DISCONNECT,
     MESSAGE_IS_TYPING,
     MESSAGE
-} from '../constants/socketEvents';
+} from '../constants/socketEvents.constant';
 
 const liveClients = [];
 

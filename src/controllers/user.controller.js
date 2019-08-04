@@ -1,6 +1,7 @@
 import User from '../models/user.model';
 import { sign } from '../utils/jwt';
 import { Types } from 'mongoose';
+import { USER_NOT_FOUND, USER_EXISTS } from "../constants/infoMessages.constant";
 
 const ObjectId = Types.ObjectId;
 
@@ -15,9 +16,9 @@ export async function loginUser (req, res) {
             const token = await sign(tokenData);
 
             res.cookie('token', token);
-            res.sendStatus(204);
+            res.status(200).send(token);
         } else {
-            res.status(404).json({ info: 'User not found' });
+            res.status(404).json({ info: USER_NOT_FOUND });
         }
     } catch (error) {
         res.status(500).json(error);
@@ -30,7 +31,7 @@ export async function registerUser (req, res) {
     try {
         const existingUser = await User.findOne({ email });
 
-        if (existingUser) return res.status(409).json({ info: 'User exists' });
+        if (existingUser) return res.status(409).json({ info: USER_EXISTS });
         const createdUser = await User.create({ name, email, password });
         const tokenData = { id: createdUser._id, name: createdUser.name, email: createdUser.email };
         const token = await sign(tokenData);

@@ -1,4 +1,5 @@
 import { Types } from 'mongoose';
+import  { FORBIDDEN } from "../constants/infoMessages.constant";
 import Room from '../models/room.model';
 
 const ObjectId = Types.ObjectId;
@@ -13,7 +14,7 @@ export default async function (req, res, next) {
         if (room && ObjectId(room.adminId).equals(ObjectId(userId))) {
             next();
         } else {
-            res.status(403).json({ info: 'Forbidden' });
+            res.status(403).json({ info: FORBIDDEN });
         }
     } catch (error) {
         res.status(500).json(error);

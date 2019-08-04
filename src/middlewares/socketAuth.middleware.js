@@ -1,4 +1,5 @@
 import { verify } from '../utils/jwt';
+import { UNAUTHORIZED } from "../constants/infoMessages.constant";
 
 export default async function (socket, next) {
     const { token } = socket.request.headers.cookie;
@@ -7,6 +8,6 @@ export default async function (socket, next) {
         socket.tokenData = await verify(token);
         next();
     } catch (error) {
-        socket.emit('error', { info: 'Unauthorized' });
+        socket.emit('error', { info: UNAUTHORIZED });
     }
 }

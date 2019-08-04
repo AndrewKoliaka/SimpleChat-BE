@@ -15,6 +15,7 @@ const server = http.createServer(app);
 const socketServer = io(server);
 
 app.use(cookieParser());
+app.use(express.static('bin'));
 app.use(bodyParser.json());
 app.use(`${apiPrefix}/users`, routes.userRouter);
 app.use(`${apiPrefix}/rooms`, routes.roomRouter);
