@@ -41,7 +41,7 @@ export async function createRoom (req, res) {
         };
         const createdRoom = await Room.create(roomData);
 
-        res.status(200).json({ data: createdRoom });
+        res.status(201).json({ data: createdRoom });
     } catch (error) {
         res.status(500).send(error);
     }

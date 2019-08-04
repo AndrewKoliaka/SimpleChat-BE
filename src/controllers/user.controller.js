@@ -37,7 +37,7 @@ export async function registerUser (req, res) {
         const token = await sign(tokenData);
 
         res.cookie('token', token);
-        res.sendStatus(201);
+        res.status(201).send(token);
     } catch (error) {
         res.status(500).json(error);
     }
