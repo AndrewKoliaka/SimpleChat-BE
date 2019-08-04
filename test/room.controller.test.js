@@ -82,7 +82,7 @@ describe('room.controller integration tests', () => {
                     const { data } = res.body;
 
                     expect(data).to.be.an('array');
-                })
+                });
         });
     });
 
@@ -116,6 +116,7 @@ describe('room.controller integration tests', () => {
             return request(HOST)
                 .put(`${apiPrefix}/rooms/${roomId}/leave`)
                 .set('Cookie', [`token=${token}`])
+                .expect(204);
         });
     });
 
